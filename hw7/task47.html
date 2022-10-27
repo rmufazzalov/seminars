@@ -10,12 +10,11 @@
 
 <body>
     <script>
-        let num = prompt("Введите 2 числа через пробел", ["2 2"]).split(" ", 2);
-        console.log(num);
+        let arrSize = prompt("Введите 2 числа через пробел", ["2 2"]).split(" ", 2);
         let arr = [];
-        for (i = 0; i < num[0]; i++) {
+        for (i = 0; i < arrSize[0]; i++) {
             arr[i] = [];
-            for (y = 0; y < num[1]; y++) {
+            for (y = 0; y < arrSize[1]; y++) {
                 arr[i][y] = (Math.random() * 20 - 10).toFixed(2);
             }
         }

@@ -9,7 +9,23 @@
 </head>
 
 <body>
+    <script>
+        let arrSize = [4, 7];
+        let arr = [];
+        for (i = 0; i < arrSize[0]; i++) {
+            arr[i] = [];
+            for (y = 0; y < arrSize[1]; y++) {
+                arr[i][y] = (Math.random() * 20 - 10).toFixed(2);
+            }
+        }
+        let userInput = prompt("Введите целые, положительные числа", ["1 1"]).split(" ", 2);
+        if ((userInput[0] >= 0) && (userInput[0] < arrSize[0]) && (userInput[1] >= 0) && (userInput[1] < arrSize[1])) {
+            alert(arr[userInput[0]][userInput[1]]);
+        } else {
+            alert("wrong input");
+        }
 
+    </script>
 </body>
 
 </html>
