@@ -6,31 +6,37 @@ namespace Sort
     {
         static void Main()
         {
-            int colCount = 7;//m
-            int rowCount = 4;//n
+           /* int colCount = 7;
+            int rowCount = 4;
             int[,] arr = GenerateArray(rowCount, colCount);
             //task 54
             Console.WriteLine("Исходный массив");
             PrintArray(arr);
 
-            Console.WriteLine("Отсортированный массив: ");
-            int[] row = new int[colCount];
-            for (int i = 0; i < rowCount; i++)
-            {
-                for (int j = 0; j < colCount; j++)
-                    row[j] = arr[i, j];
-                Sort(row);
-                Insert(true, i, row, arr);
-            }
-            PrintArray(arr);
+              Console.WriteLine("Отсортированный массив: ");
+              int[] row = new int[colCount];
+              for (int i = 0; i < rowCount; i++)
+              {
+                  for (int j = 0; j < colCount; j++)
+                      row[j] = arr[i, j];
+                  Sort(row);
+                  Insert(true, i, row, arr);
+              }
+              PrintArray(arr);         */
 
             //task 56
-            int minSumNum = ArrRowSum(arr, rowCount, colCount);
-            Console.WriteLine("Строка с наименьшей суммой элементов: ");
-            Console.WriteLine(minSumNum);
-            
-            //task 
-            
+            /*  int minSumNum = ArrRowSum(arr, rowCount, colCount);
+              Console.WriteLine("Строка с наименьшей суммой элементов: ");
+              Console.WriteLine(minSumNum); */
+
+            //task 58
+            int matrixSideCount = 2;
+            int[,] matrix1 = GenerateArray(matrixSideCount, matrixSideCount);
+            int[,] matrix2 = GenerateArray(matrixSideCount, matrixSideCount);
+            PrintArray(matrix1);
+            PrintArray(matrix2);
+            int[,] resultMatrix = MatrixMult(matrix1, matrix2, matrixSideCount);
+            PrintArray(resultMatrix);
         }
 
         public static void Insert(bool isRow, int dim, int[] source, int[,] dest)
@@ -109,6 +115,22 @@ namespace Sort
             }
             return numRow;
         }
+        public static int[,] MatrixMult(int[,] inArray1, int[,] inArray2, int a)
+        {
+            int [,] arrayMult = new int[a, a];
+            for (int i = 0; i < a; i++)
+            {
+                for (int j = 0; j < a; j++)
+                {
+                    for (int k = 0; k < a; k++)
+                    {
+                        arrayMult[i, j] += inArray1[i, k] * inArray2[k, j];
+                    }
+                }
+            }
+            return arrayMult;
+            
+        } 
 
     }
 
