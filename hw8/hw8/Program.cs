@@ -9,7 +9,7 @@ namespace Sort
             int colCount = 7;//m
             int rowCount = 4;//n
             int[,] arr = GenerateArray(rowCount, colCount);
-
+            //task 54
             Console.WriteLine("Исходный массив");
             PrintArray(arr);
 
@@ -23,6 +23,14 @@ namespace Sort
                 Insert(true, i, row, arr);
             }
             PrintArray(arr);
+
+            //task 56
+            int minSumNum = ArrRowSum(arr, rowCount, colCount);
+            Console.WriteLine("Строка с наименьшей суммой элементов: ");
+            Console.WriteLine(minSumNum);
+            
+            //task 
+            
         }
 
         public static void Insert(bool isRow, int dim, int[] source, int[,] dest)
@@ -74,6 +82,32 @@ namespace Sort
                         inArray[j + 1] = temp;
                     }
                 }
+        }
+        public static int ArrRowSum(int[,] inArray, int a, int b)
+        {
+            int numRow = 0;
+            int[] arraySum = new int[a];
+            for (int i = 0; i < a; i++)
+            {
+                int tempSum = 0;
+                for (int j = 0; j < b; j++)
+                {
+                    tempSum += inArray[i, j];
+                }
+                arraySum[i] = tempSum;
+            }
+            for (int i = 0; i < a - 1; i++)
+            {
+                if (arraySum[i] < arraySum[i + 1])
+                {
+                    numRow = i;
+                } else
+                {
+                    numRow = i + 1;
+                }
+
+            }
+            return numRow;
         }
 
     }
