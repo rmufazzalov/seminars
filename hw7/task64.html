@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        spiralArray = function (edge) {
+            var arr = Array(edge),
+                x = 0, y = edge,
+                total = edge * edge--,
+                dx = 1, dy = 0,
+                i = 0, j = 0;
+            while (y) arr[--y] = [];
+            while (i < total) {
+                arr[y][x] = i++;
+                x += dx; y += dy;
+                if (++j == edge) {
+                    if (dy < 0) { x++; y++; edge -= 2 }
+                    j = dx; dx = -dy; dy = j; j = 0;
+                }
+            }
+            return arr;
+        }
+
+        // T E S T:
+        arr = spiralArray(edge = 5);
+        for (y = 0; y < edge; y++) console.log(arr[y].join(" "));
+    </script>
+</body>
+
+</html>
