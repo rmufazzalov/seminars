@@ -10,8 +10,12 @@ else:
     k = 1
 n *= k
 i = 0
+def calc(x, y, z): return x + y * z
+
+
 while i < n - 2:
-    fib_sum = fib1 + fib2 * k
+    #fib_sum = fib1 + fib2 * k
+    fib_sum = calc(fib1, fib2, k)
     fib1 = fib2
     fib2 = fib_sum
     i += 1

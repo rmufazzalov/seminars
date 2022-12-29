@@ -21,10 +21,10 @@ i = 0
 for letter in listobj1:
     if (('0' <= letter) and (letter <= '9')):
         listobj3.append(int(listobj1[i]) + int(listobj2[i]))
-        i += 1
-        continue
+    else:
+        listobj3.append(letter)
     i += 1
-    listobj3.append(letter)
+
 
 rezultstr = ''
 for y in listobj3:
